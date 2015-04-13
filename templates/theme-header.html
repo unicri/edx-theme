@@ -1,5 +1,9 @@
 ## mako
-<%! from django.core.urlresolvers import reverse %>
+<%!
+from django.core.urlresolvers import reverse
+import branding
+%>
+<%! from microsite_configuration.templatetags.microsite import platform_name %>
 <%namespace name='static' file='/static_content.html'/>
 <%inherit file="/navigation.html"/>
 
