@@ -1,26 +1,103 @@
 ## mako
 <%! from django.core.urlresolvers import reverse %>
-<%namespace name='static' file='/static_content.html'/>
-<%! from datetime import datetime %>
-<%! from pytz import UTC %>
+<%! from django.utils.translation import ugettext as _ %>
+<%! from theme import utils %>
 
-<div class="wrapper-footer">
-  <footer>
-    <div class="colophon">
-      <nav class="nav-colophon">
-        <ol>
-          <li><a href="${reverse('tos')}">Terms of Services</a></li>
-          <li><a href="${reverse('tos')}#privacy">Privacy Policy</a></li>
-          <li><a href="${reverse('tos')}#honor">Honor Code</a></li>
-          <li><a href="${reverse('tos')}#copyright">Copyright</a></li>
-          <li><a href="${reverse('about')}#careers">Careers</a></li>
-          <li><a href="${reverse('about')}#contact">Contact</a></li>
-          <li><a href="${marketing_link('FAQ')}">Help</a></li>
-        </ol>
-      </nav>
-    </div>
-    <div class="references">
-      <span>Built on <a href="http://code.edx.org">OpenEdX</a>.</span>
-    </div>
-  </footer>
+<%namespace name='static' file='static_content.html'/>
+## WARNING: These files are specific to edx.org and are not used in installations outside of that domain. Open edX users will want to use the file "footer.html" for any changes or overrides.
+
+<div class="wrapper wrapper-footer edx-footer edx-footer-new">
+    <footer id="footer-global" class="footer-global" role="contentinfo" aria-label="Footer">
+
+        <div class="footer-about">
+            <h2 class="sr footer-about-title">${_("About edX")}</h2>
+
+            <div class="footer-about-logo">
+                <img alt="UNICRI logo" src="${static.url(utils.THEME_PATH + 'images/logo.png')}">
+            </div>
+
+            <div class="footer-about-copy">
+                <p>
+                    ${_(
+                    "{UNICRI} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porta orci eu arcu consequat, sed sodales erat sagittis. Fusce non erat eu neque fermentum bibendum nec a diam. Donec auctor dictum lectus, at molestie turpis tincidunt at. Fusce eu ultricies justo, id lobortis massa. Fusce interdum diam nibh, finibus pharetra lorem commodo non. Praesent volutpat lacus magna, ut feugiat sem venenatis ut. Vivamus non laoreet odio."
+                    ).format(
+                    UNICRI="UNICRI"
+                    )}
+                </p>
+            </div>
+
+
+        </div>
+
+        <nav class="footer-nav" role="navigation" aria-label="About">
+            <h2 class="footer-nav-title">${_("ABOUT")}</h2>
+
+            <div class="footer-nav-links">
+                <a href="${marketing_link('ABOUT')}">${_("About")}</a>
+                <a href="${marketing_link('NEWS')}">${_("News")}</a>
+                <a href="${marketing_link('CONTACT')}">${_("Contact")}</a>
+                <a href="${marketing_link('FAQ')}">${_("FAQ")}</a>
+                <a href="${marketing_link('BLOG')}">${_("UNICRI edX Blog")}</a>
+            </div>
+        </nav>
+
+        <div class="footer-follow">
+            <h2 class="footer-follow-title">${_("CONNECT")}</h2>
+
+            <div class="footer-follow-links">
+                % for social_name in settings.SOCIAL_MEDIA_FOOTER_NAMES:
+                <%  social_url, social_title, social_icon = (
+              settings.SOCIAL_MEDIA_FOOTER_URLS.get(social_name, "#"),
+              unicode(settings.SOCIAL_MEDIA_FOOTER_DISPLAY.get(social_name, {}).get("title", "")),
+              settings.SOCIAL_MEDIA_FOOTER_DISPLAY.get(social_name).get("icon", "")
+            )
+                %>
+                    <a href="${social_url}" title="${social_title}" rel="noreferrer">
+                        <i class="icon fa ${social_icon} element-invisible"></i>
+                        ${social_title}
+                    </a>
+                % endfor
+            </div>
+
+            % if settings.FEATURES.get('ENABLE_FOOTER_MOBILE_APP_LINKS'):
+                <div class="footer-mobile-apps">
+                    <h2 class="footer-nav-title">${_("Mobile Apps")}</h2>
+
+                    <div class="mobile-app-wrapper">
+                        <a href="${settings.MOBILE_STORE_URLS.get('apple', '#')}">
+                            <img class="app-store" alt="${_("Apple app on Apple Store")}"
+                                 src="${static.url('images/app/app_store_badge_135x40.svg')}">
+                        </a>
+                    </div>
+                    <div class="mobile-app-wrapper">
+                        <a href="${settings.MOBILE_STORE_URLS.get('google', '#')}">
+                            <img class="google-play" alt="${_("Android app on Google Play")}"
+                                 src="${static.url('images/app/google_play_badge_45.png')}">
+                        </a>
+                    </div>
+                </div>
+            % endif
+        </div>
+    </footer>
 </div>
+<div class="copyright">
+        <div class="text fl">
+            <p>&copy; ${settings.COPYRIGHT_YEAR} UNICRI <br />
+                <a href="${marketing_link('TOS')}">${_("Terms of Service and Honor Code")}</a> |
+                <a href="${marketing_link('PRIVACY')}">${_("Privacy Policy")}</a>
+            </p>
+
+        </div>
+        <div class="edx_logo cf fr">
+                <a href="http://open.edx.org" title="${_("Powered by Open edX")}">
+                    <img alt="${_("Powered by Open edX")}"
+                         src="${static.url(utils.THEME_PATH + 'images/edx-openedx-logo-tag-dark.png')}">
+                </a>
+        </div>
+
+
+    </section>
+</div>
+
+<script type="text/javascript" src="/static/js/vendor/noreferrer.js" charset="utf-8"></script>
+

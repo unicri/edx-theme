@@ -1,0 +1,72 @@
+p a:link:hover{
+    text-decoration: none;
+    color: #1d9dd9
+}
+
+.edx-footer-new .footer-nav-links a, .edx-footer-new .footer-follow-links a {
+    color: #717171;
+    border-bottom: none;
+}
+
+.edx-footer-new .footer-nav-links a:hover, .edx-footer-new .footer-follow-links a:hover {
+    color: #1d9dd9;
+    text-decoration: none;
+}
+
+header.global {
+    background: none repeat scroll 0 0 white;
+    border-bottom: 2px solid #ddd;
+    height: 76px;
+    position: relative;
+    width: 100%;
+}
+
+.edx-footer-new .footer-nav-title, .edx-footer-new .footer-follow-title {
+    color: #262626;
+}
+
+.edx-footer-new .footer-nav {
+    border-right: none;
+}
+
+.edx-footer-new {
+    background-color: #f4f4f4;
+    color: white;
+    min-height: 364px;
+    width: 100%;
+}
+
+.edx-footer-new .footer-about {
+    border-right: none;
+}
+
+.edx-footer-new .footer-about-copy {
+    color: #717171;
+}
+
+.copyright {
+    background: none repeat scroll 0 0 #333;
+    padding: 35px 95px;
+}
+
+div.text p, div.text p a{
+    font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+    color: #909090;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+
+.copyright .text {
+    margin-top: -30px;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+.copyright .edx_logo {
+    margin-top: -15px;
+}

@@ -1,7 +1,7 @@
 ## mako
 <%!
 from django.core.urlresolvers import reverse
-import branding
+from theme import utils
 %>
 <%! from microsite_configuration.templatetags.microsite import platform_name %>
 <%namespace name='static' file='/static_content.html'/>
@@ -9,6 +9,6 @@ import branding
 
 ## TODO: this will eventually be moved to the Sass
 <%block name="navigation_logo">
-  <img src="${static.url(branding.get_logo_url())}" alt="${platform_name()}"/>
+  <img style="height: 48px;" src="${static.url(utils.THEME_PATH + 'images/logo.png')}" alt="${platform_name()}"/>
 </%block>
 
