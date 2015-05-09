@@ -14,7 +14,7 @@ p a:link:hover{
 }
 
 header.global {
-    background: none repeat scroll 0 0 white;
+    background: none repeat scroll 0 0 #ffffff;
     border-bottom: 2px solid #ddd;
     height: 76px;
     position: relative;
@@ -69,4 +69,55 @@ div.text p, div.text p a{
 
 .copyright .edx_logo {
     margin-top: -15px;
+}
+
+
+/* header */
+
+header.global .user a.user-link, header.global .user a.user-link .icon, header.global .user>.primary:last-child>a,
+header.global .nav-courseware li .cta, header.global .nav-courseware li .cta:hover
+{
+    background-color: #0088cc;
+    border: none;
+    box-shadow: none;
+    color: #fff;
+    text-shadow: none;
+}
+
+header.global .nav-global li a, header.global .nav-global div a {
+    text-transform: none;
+    font-size: 15px;
+    font-weight: normal;
+    color: #777777;
+}
+
+
+/* registration view */
+.register aside .cta-login .cta-login-action:hover {
+    background-color: #0088cc;
+}
+
+.view-register .form-actions button[type="submit"] {
+    background-color: #0088cc !important;
+    box-shadow: none;
+}
+
+/* login view */
+.view-login .form-actions button[type="submit"] {
+    background-color: #0088cc;
+    box-shadow: none;
+}
+
+.view-login .form-actions button[type="submit"]:hover {
+    background-color: #0088cc;
+}
+
+/* restore password view */
+#forgot-password-modal #password-reset .form-actions button[type="submit"] {
+    background-color: #0088cc;
+    box-shadow: none;
+}
+
+#forgot-password-modal #password-reset .form-actions button[type="submit"]:hover {
+    background-color: #0088cc;
 }
