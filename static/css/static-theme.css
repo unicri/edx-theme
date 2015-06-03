@@ -121,3 +121,14 @@ header.global .nav-global li a, header.global .nav-global div a {
 #forgot-password-modal #password-reset .form-actions button[type="submit"]:hover {
     background-color: #0088cc;
 }
+
+header.global .user>.primary:last-child>a.shopping-cart {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 2px;
+    text-transform: none;
+}
+
+header.global .user>.primary:last-child>a.shopping-cart i{
+    margin-right: 8px;
+}
