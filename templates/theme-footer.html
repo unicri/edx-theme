@@ -1,7 +1,6 @@
 ## mako
 <%! from django.core.urlresolvers import reverse %>
 <%! from django.utils.translation import ugettext as _ %>
-<%! from theme import utils %>
 
 <%namespace name='static' file='static_content.html'/>
 ## WARNING: These files are specific to edx.org and are not used in installations outside of that domain. Open edX users will want to use the file "footer.html" for any changes or overrides.
@@ -13,7 +12,7 @@
             <h2 class="sr footer-about-title">${_("About edX")}</h2>
 
             <div class="footer-about-logo">
-                <img alt="UNICRI logo" src="${static.url(utils.THEME_PATH + 'images/logo-color.png')}">
+                <img alt="UNICRI logo" src="${static.url('images/logo-color.png')}">
             </div>
 
             <div class="footer-about-copy">
@@ -89,7 +88,7 @@
         <div class="edx_logo cf fr">
                 <a href="http://open.edx.org" title="${_("Powered by Open edX")}">
                     <img alt="${_("Powered by Open edX")}"
-                         src="${static.url(utils.THEME_PATH + 'images/edx-openedx-logo-tag-dark.png')}">
+                         src="${static.url('images/edx-openedx-logo-tag-dark.png')}">
                 </a>
         </div>
 

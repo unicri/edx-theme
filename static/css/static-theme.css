@@ -132,3 +132,7 @@ header.global .user>.primary:last-child>a.shopping-cart {
 header.global .user>.primary:last-child>a.shopping-cart i{
     margin-right: 8px;
 }
+
+.username-label {
+    margin-left: 20px;
+}
